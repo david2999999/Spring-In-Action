@@ -34,7 +34,14 @@
 	    <version>5.0.4.RELEASE</version>
 	    <scope>test</scope>
 	</dependency>
-
+	
+	<!-- https://mvnrepository.com/artifact/com.github.stefanbirkner/system-rules -->
+	<dependency>
+	    <groupId>com.github.stefanbirkner</groupId>
+	    <artifactId>system-rules</artifactId>
+	    <version>1.17.1</version>
+	    <scope>test</scope>
+	</dependency>
 
 
 	<dependency>
