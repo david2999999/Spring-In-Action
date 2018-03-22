@@ -3,6 +3,7 @@ package com.springinaction.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 import com.springinaction.model.CDPlayer;
 import com.springinaction.model.CompactDisc;
@@ -13,12 +14,8 @@ import com.springinaction.model.WhiteAlbumDisc;
 
 @Configuration
 //@ComponentScan("com.springinaction")
+//@Import(CDConfig.class)
 public class CDPlayerConfig {
-
-	@Bean
-	public CompactDisc sgtPeppers() {
-		return new SgtPeppersDisc();
-	}
 	
 	@Bean 
 	public CompactDisc randomBeatlesCD() {
@@ -35,8 +32,8 @@ public class CDPlayerConfig {
 	}
 	
 	@Bean 
-	public CDPlayer cdPlayer() {
-		return new CDPlayer(sgtPeppers());
+	public CDPlayer cdPlayer(CompactDisc disc) {
+		return new CDPlayer(disc);
 	}
 	
 	@Bean

@@ -3,7 +3,6 @@ package com.springinaction.model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
 public class CDPlayer implements MediaPlayer {
 	
 	private CompactDisc disc;
@@ -18,5 +17,11 @@ public class CDPlayer implements MediaPlayer {
 		disc.play();
 		
 	}
+
+	public void setDisc(CompactDisc disc) {
+		this.disc = disc;
+	}
+	
+	
 	
 }
