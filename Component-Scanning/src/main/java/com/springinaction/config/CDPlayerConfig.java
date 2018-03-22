@@ -41,7 +41,7 @@ public class CDPlayerConfig {
 	
 	@Bean
 	public CDPlayer anothercdPlayer() {
-		return new CDPlayer(sgtPeppers());
+		return new CDPlayer(randomBeatlesCD());
 	}
 }
 
