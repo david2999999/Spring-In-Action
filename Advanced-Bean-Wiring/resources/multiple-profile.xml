@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<beans profile="dev">
+		<jdbc:embedded-database id="dataSource">
+			<jdbc:script location="classpath:schema.sql" />
+			<jdbc:script location="classpath:test-data.sql" />
+		</jdbc:embedded-database>
+	</beans>
+	
+	<beans profile="qa">
+		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+			destroy-method="close" p:url="jdbc:h2:tcp://dbserver/~/test"
+			p:driverClassName="org.h2.Driver" p:username="sa" p:password="password"
+			p:initialSize="20" p:maxActive="30" />
+	</beans>
+	
+	<beans profile="prod">
+		<jee:jndi-lookup id="dataSource" jndi-name="jdbc/myDatabase"
+			resource-ref="true" proxy-interface="javax.sql.DataSource" />
+	</beans>
+</beans>
