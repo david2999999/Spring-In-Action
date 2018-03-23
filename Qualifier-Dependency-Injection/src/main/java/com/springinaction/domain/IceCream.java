@@ -1,12 +1,20 @@
 package com.springinaction.domain;
 
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
+import com.springinaction.annotation.Cold;
+import com.springinaction.annotation.Creamy;
+
 @Component
-//@Primary
-@Qualifier("cold")
+@Cold
+@Creamy
 public class IceCream implements Dessert {
 
+	@Override
+	public String toString() {
+		return "IceCream []";
+	}
+
+	
+	
 }

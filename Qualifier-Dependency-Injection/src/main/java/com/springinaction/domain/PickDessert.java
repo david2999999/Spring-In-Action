@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import com.springinaction.annotation.Cold;
+import com.springinaction.annotation.Creamy;
+
 @Component
 public class PickDessert {
 	private Dessert dessert;
@@ -13,7 +16,8 @@ public class PickDessert {
 	}
 	
 	@Autowired
-	@Qualifier("cold")
+	@Cold
+	@Creamy
 	public void setDessert(Dessert dessert) {
 		this.dessert = dessert;
 	}
