@@ -2,21 +2,22 @@ package com.springinaction.model;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BlankDisc implements CompactDisc {
+public class BlankDisc2 implements CompactDisc {
 
 	private String title;
 	private String artist;
 	private List<String> tracks;
 	
-	
-	
-	public BlankDisc(String title, String artist) {
-		this.title = title;
-		this.artist = artist;
-	}
+	public BlankDisc2(
+			@Value("${disc.title}") String title,
+			@Value("${disc.artist}") String artist) {
+			this.title = title;
+			this.artist = artist;
+			}
 
 	public void setTitle(String title) {
 		this.title = title;
@@ -26,13 +27,9 @@ public class BlankDisc implements CompactDisc {
 		this.artist = artist;
 	}
 
-
-
 	public void setTracks(List<String> tracks) {
 		this.tracks = tracks;
 	}
-
-
 
 	@Override
 	public void play() {
