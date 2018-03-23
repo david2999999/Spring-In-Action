@@ -9,6 +9,7 @@
 	<configs>
 		<config>resources/profile.xml</config>
 		<config>resources/multiple-profile.xml</config>
+		<config>resources/dessert-config.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
