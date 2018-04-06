@@ -9,36 +9,28 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class Audience {
+public class Audience2 {
 	
 	@Pointcut("execution(* com.spring.model.PerformanceImpl.perform(..))")
+	public void performanceDemoPackage() {}
+	
+	@Before("performanceDemoPackage()")
 	public void silenceCellPhone() {
 		System.out.println("Silencing cell phones");
 	}
 	
-	@Pointcut("execution(* com.spring.model.PerformanceImpl.perform(..))")
+	@Before("performanceDemoPackage()")
 	public void takeSeats() {
 		System.out.println("Taking Seats");
 	}
 	
-	@AfterReturning("execution(* com.spring.model.PerformanceImpl.perform(..)")
+	@AfterReturning("performanceDemoPackage()")
 	public void applause() {
 		System.out.println("Clap Clap Clap");
 	}
 	
-	@AfterThrowing("execution(* com.spring.model.PerformanceImpl.perform(..))")
+	@AfterThrowing("performanceDemoPackage()")
 	public void demandRefund() {
 		System.out.println("Demanding a refund");
 	}
 }
-
-
-
-
-
-
-
-
-
-
-

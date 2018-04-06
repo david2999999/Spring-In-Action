@@ -1,3 +1,4 @@
+package com.spring.aop;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.spring.config.AopConfig;
